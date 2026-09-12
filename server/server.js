@@ -87,9 +87,7 @@ const server = http.createServer(async (req, res) => {
 
       const steamId = await verifySteam(params);
 
-      res.writeHead(200, {
-        "Content-Type": "text/html; charset=utf-8"
-      });
+
 
 res.writeHead(302, {
   Location: "https://badruugn1-code.github.io/f-gaming-center/"
