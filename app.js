@@ -6,7 +6,7 @@ const data = {
   ],
 
   skins: [
-    {weapon:"AK-47",name:"Neon Rider",type:"rifle",rarity:"Covert",icon:"🔫"},
+{weapon:"AK-47",name:"Neon Rider",type:"rifle",rarity:"Covert",icon:"🔫",image:"https://www.csgodatabase.com/wp-content/uploads/2020/03/AK-47-Neon-Rider.png"},
     {weapon:"AWP",name:"Dragon Lore",type:"rifle",rarity:"Covert",icon:"🎯"},
     {weapon:"M4A1-S",name:"Printstream",type:"rifle",rarity:"Covert",icon:"🔫"},
     {weapon:"Glock-18",name:"Fade",type:"pistol",rarity:"Covert",icon:"🔫"},
