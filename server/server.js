@@ -91,11 +91,10 @@ const server = http.createServer(async (req, res) => {
         "Content-Type": "text/html; charset=utf-8"
       });
 
-      res.end(`
-        <h1>✅ Steam Login амжилттай!</h1>
-        <p>Steam ID:</p>
-        <strong>${steamId}</strong>
-      `);
+res.writeHead(302, {
+  Location: "https://badruugn1-code.github.io/f-gaming-center/"
+});
+res.end();
 
       return;
     }
