@@ -18,7 +18,10 @@ const t={mn:{servers:"Servers",skins:"Skinchanger",players:"Players",login:"Logi
 function renderServers(){const g=document.querySelector("#serverGrid");g.innerHTML=data.servers.map(s=>`<article class="server"><div class="map ${s.map.slice(3)}">${s.map.replace("de_","").toUpperCase()}</div><div class="server-body"><strong>${s.name}</strong><br><small>● LIVE · ${s.map}</small><div class="server-row"><span>👥 ${s.players}/${s.max}</span><span>⚡ ${s.ping} ms</span></div><button class="join" onclick="connect('${s.address||"127.0.0.1:27015"}')">CONNECT</button></div></article>`).join("");}
 function renderSkins(filter="all"){document.querySelector("#skinGrid").innerHTML=data.skins.filter(x=>filter==="all"||x.type===filter).map((s,i)=>`<article class="skin"><div class="skin-img">${s.icon}</div><h3>${s.weapon} | ${s.name}</h3><p>${s.rarity} · CS2</p><button class="equip" onclick="equip('${s.weapon} | ${s.name}')">EQUIP</button></article>`).join("");}
 function connect(addr){alert("CS2 connect: "+addr+"\\nProduction server дээр Steam connect URL/launcher холбоно.");}
-function equip(name){alert("Selected: "+name+"\\nDemo mode. CS2 дээр бодитоор хэрэгжүүлэхийн тулд server plugin + inventory database хэрэгтэй.");}
+function equip(name){
+  localStorage.setItem("selectedSkin", name);
+  alert("✅ Equipped: " + name);
+}
 document.querySelectorAll(".filter").forEach(b=>b.onclick=()=>{document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));b.classList.add("active");renderSkins(b.dataset.filter)});
 document.querySelector("#lang").onchange=e=>{const x=t[e.target.value];document.querySelectorAll("[data-i18n]").forEach(el=>{const k=el.dataset.i18n;if(x[k])el.textContent=x[k]})};
 const total=data.servers.reduce((a,s)=>a+s.players,0), slots=data.servers.reduce((a,s)=>a+s.max,0);
