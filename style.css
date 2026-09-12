@@ -105,7 +105,7 @@ margin:16px 0
 .hero h1 b{color:#ed0016}
 
 .hero p{
-max-width:530px;
+max-width:120px;
 color:#999;
 font-size:17px;
 line-height:1.6
@@ -132,7 +132,7 @@ filter:drop-shadow(0 0 30px #8c0010)
 }
 
 main{
-max-width:1300px;
+max-width:120px;
 margin:auto;
 padding:48px 22px
 }
@@ -340,7 +340,7 @@ display:none
 }
 
 .hero{
-min-height:520px;
+min-height:120px;
 display:block;
 text-align:center
 }
