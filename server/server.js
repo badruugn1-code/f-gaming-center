@@ -83,20 +83,41 @@ const server = http.createServer(async (req, res) => {
     }
 
     if (url.pathname === "/auth/steam/callback") {
-      const params = Object.fromEntries(url.searchParams.entries());
+  const params = Object.fromEntries(url.searchParams.entries());
 
-      const steamId = await verifySteam(params);
+  const steamId = await verifySteam(params);
 
+  let avatar = "";
 
+  try {
+    const profileResponse = await fetch(
+      `https://steamcommunity.com/profiles/${steamId}?xml=1`
+    );
 
-res.writeHead(302, {
-Location: `https://badruugn1-code.github.io/f-gaming-center/?steamId=${steamId}`
-});
-res.end();
+    const profileXml = await profileResponse.text();
 
-      return;
+    const match = profileXml.match(
+      /<avatarFull><!\[CDATA\[(.*?)\]\]><\/avatarFull>/
+    );
+
+    if (match) {
+      avatar = match[1];
     }
+  } catch (error) {
+    console.error("Avatar error:", error);
+  }
 
+  res.writeHead(302, {
+    Location:
+      `https://badruugn1-code.github.io/f-gaming-center/` +
+      `?steamId=${steamId}` +
+      `&avatar=${encodeURIComponent(avatar)}`
+  });
+
+  res.end();
+
+  return;
+}
     res.writeHead(404);
     res.end("Not Found");
 
