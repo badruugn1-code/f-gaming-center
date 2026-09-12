@@ -7,23 +7,31 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="nav">
-  <a class="brand" href="#"><img src="logo.jpeg"><span>F GAMING CENTER</span></a>
-  <div class="live"><i></i><b id="online">0</b> PLAYERS</div>
-  <div class="servers-count">▣ <b id="serverCount">0</b> SERVERS</div>
-  <nav>
-    <a href="#servers" data-i18n="servers">Servers</a>
-    <a href="#skins" data-i18n="skins">Skinchanger</a>
-    <a href="#players" data-i18n="players">Players</a>
-  </nav>
-  <select id="lang" aria-label="Language">
-    <option value="mn">🇲🇳 Монгол</option>
-    <option value="en">🇬🇧 English</option>
-    <option value="ru">🇷🇺 Русский</option>
-  </select>
-<a class="login" href="https://f-gaming-center.onrender.com/auth/steam">Login</a>
-</header>
+    <header class="nav">
+  <a class="brand" href="#">
+    <img src="logo.jpeg" alt="F Gaming">
+    <span>F GAMING</span>
+  </a>
 
+  <div class="header-actions">
+
+    <a class="header-btn" href="#servers">🎮</a>
+
+    <a class="header-btn" href="#skins">+</a>
+
+    <select id="lang" aria-label="Language">
+      <option value="mn">🇲🇳</option>
+      <option value="en">🇬🇧</option>
+    </select>
+
+    <a class="header-btn" href="#messages">✉</a>
+
+    <a class="login" href="https://f-gaming-center.onrender.com/auth/steam">
+      Steam
+    </a>
+
+  </div>
+</header>
 <section class="hero">
   <div class="hero-copy">
     <span class="eyebrow">F GAMING CENTER</span>
