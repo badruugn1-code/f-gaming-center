@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>F Gaming Center</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+  <a class="brand" href="#"><img src="logo.jpeg"><span>F GAMING CENTER</span></a>
+  <div class="live"><i></i><b id="online">0</b> PLAYERS</div>
+  <div class="servers-count">▣ <b id="serverCount">0</b> SERVERS</div>
+  <nav>
+    <a href="#servers" data-i18n="servers">Servers</a>
+    <a href="#skins" data-i18n="skins">Skinchanger</a>
+    <a href="#players" data-i18n="players">Players</a>
+  </nav>
+  <select id="lang" aria-label="Language">
+    <option value="mn">🇲🇳 Монгол</option>
+    <option value="en">🇬🇧 English</option>
+    <option value="ru">🇷🇺 Русский</option>
+  </select>
+  <button class="login" data-i18n="login">Login</button>
+</header>
+
+<section class="hero">
+  <div class="hero-copy">
+    <span class="eyebrow">F GAMING CENTER</span>
+    <h1>PLAY <b>YOUR WAY.</b></h1>
+    <p data-i18n="hero">CS2 community servers, live players and your cosmetic loadout.</p>
+    <a href="#servers" class="red-btn" data-i18n="play">PLAY NOW</a>
+  </div>
+  <div class="hero-logo"><img src="logo.jpeg"></div>
+</section>
+
+<main>
+<section id="servers">
+  <div class="section-title">
+    <div><h2 data-i18n="ourServers">Our Servers</h2><p data-i18n="choose">Choose a map and connect.</p></div>
+    <strong><span id="totalPlayers">0</span> / <span id="totalSlots">0</span></strong>
+  </div>
+  <div id="serverGrid" class="server-grid"></div>
+</section>
+
+<section id="skins">
+  <div class="section-title">
+    <div><h2 data-i18n="skinTitle">Skinchanger</h2><p data-i18n="skinSub">Select your cosmetic loadout.</p></div>
+  </div>
+  <div class="filters">
+    <button class="filter active" data-filter="all">ALL</button>
+    <button class="filter" data-filter="rifle">RIFLE</button>
+    <button class="filter" data-filter="pistol">PISTOL</button>
+    <button class="filter" data-filter="knife">KNIFE</button>
+  </div>
+  <div id="skinGrid" class="skin-grid"></div>
+</section>
+
+<section id="players" class="players">
+  <div class="section-title"><div><h2 data-i18n="topPlayers">Top Players</h2><p>F Gaming Center leaderboard</p></div></div>
+  <div class="leaderboard">
+    <div>#1 <b>MOOSE</b><span>27,014 kills</span></div>
+    <div>#2 <b>IZU</b><span>26,228 kills</span></div>
+    <div>#3 <b>VIRUS</b><span>10,852 kills</span></div>
+    <div>#4 <b>HERO</b><span>10,761 kills</span></div>
+  </div>
+</section>
+</main>
+<footer>© 2026 F Gaming Center · CS2 Community</footer>
+<script src="app.js"></script>
+</body>
+</html>
