@@ -36,7 +36,7 @@ async function verifySteam(params) {
 
   const text = await response.text();
 
-  if (!text.includes("is_valid:true")) {
+if (!/is_valid\s*:\s*true/i.test(text)) {
     throw new Error("Steam authentication failed");
   }
 
