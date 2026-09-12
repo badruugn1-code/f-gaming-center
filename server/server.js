@@ -90,7 +90,7 @@ const server = http.createServer(async (req, res) => {
 
 
 res.writeHead(302, {
-  Location: "https://badruugn1-code.github.io/f-gaming-center/"
+Location: `https://badruugn1-code.github.io/f-gaming-center/?steamId=${steamId}`
 });
 res.end();
 
