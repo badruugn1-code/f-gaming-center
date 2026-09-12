@@ -12,11 +12,11 @@ function steamLoginUrl(baseUrl) {
   url.searchParams.set("openid.realm", baseUrl);
   url.searchParams.set(
     "openid.identity",
-    "http://specs.openid.net/auth/2.0/identifier"
+"http://specs.openid.net/auth/2.0/identifier_select"
   );
   url.searchParams.set(
     "openid.claimed_id",
-    "http://specs.openid.net/auth/2.0/identifier"
+    "http://specs.openid.net/auth/2.0/identifier_select"
   );
 
   return url.toString();
