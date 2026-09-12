@@ -14,7 +14,15 @@ skins:[
  {weapon:"Karambit",name:"Doppler",type:"knife",rarity:"Extraordinary",icon:"🔪"},
  {weapon:"Butterfly Knife",name:"Fade",type:"knife",rarity:"Extraordinary",icon:"🔪"}
 ]};
-const t={mn:{servers:"Servers",skins:"Skinchanger",players:"Players",login:"Login",hero:"CS2 community servers, live players болон cosmetic loadout.",play:"ТОГЛОХ",ourServers:"Манай серверүүд",choose:"Map сонгоод серверт орно уу.",skinTitle:"Skinchanger",skinSub:"Өөрийн skin-ээ сонгоно уу.",topPlayers:"Шилдэг тоглогчид"},en:{servers:"Servers",skins:"Skinchanger",players:"Players",login:"Login",hero:"CS2 community servers, live players and your cosmetic loadout.",play:"PLAY NOW",ourServers:"Our Servers",choose:"Choose a map and connect.",skinTitle:"Skinchanger",skinSub:"Select your cosmetic loadout.",topPlayers:"Top Players"},ru:{servers:"Серверы",skins:"Skinchanger",players:"Игроки",login:"Войти",hero:"CS2 community servers, live players and cosmetic loadout.",play:"ИГРАТЬ",ourServers:"Наши серверы",choose:"Выберите карту и подключитесь.",skinTitle:"Skinchanger",skinSub:"Выберите свой скин.",topPlayers:"Лучшие игроки"}};
+const steamId = new URLSearchParams(location.search).get("steamId");
+
+if (steamId) {
+  const login = document.querySelector(".login");
+  if (login) {
+    login.textContent = "Steam ✓";
+    login.removeAttribute("href");
+  }
+}const t={mn:{servers:"Servers",skins:"Skinchanger",players:"Players",login:"Login",hero:"CS2 community servers, live players болон cosmetic loadout.",play:"ТОГЛОХ",ourServers:"Манай серверүүд",choose:"Map сонгоод серверт орно уу.",skinTitle:"Skinchanger",skinSub:"Өөрийн skin-ээ сонгоно уу.",topPlayers:"Шилдэг тоглогчид"},en:{servers:"Servers",skins:"Skinchanger",players:"Players",login:"Login",hero:"CS2 community servers, live players and your cosmetic loadout.",play:"PLAY NOW",ourServers:"Our Servers",choose:"Choose a map and connect.",skinTitle:"Skinchanger",skinSub:"Select your cosmetic loadout.",topPlayers:"Top Players"},ru:{servers:"Серверы",skins:"Skinchanger",players:"Игроки",login:"Войти",hero:"CS2 community servers, live players and cosmetic loadout.",play:"ИГРАТЬ",ourServers:"Наши серверы",choose:"Выберите карту и подключитесь.",skinTitle:"Skinchanger",skinSub:"Выберите свой скин.",topPlayers:"Лучшие игроки"}};
 function renderServers(){const g=document.querySelector("#serverGrid");g.innerHTML=data.servers.map(s=>`<article class="server"><div class="map ${s.map.slice(3)}">${s.map.replace("de_","").toUpperCase()}</div><div class="server-body"><strong>${s.name}</strong><br><small>● LIVE · ${s.map}</small><div class="server-row"><span>👥 ${s.players}/${s.max}</span><span>⚡ ${s.ping} ms</span></div><button class="join" onclick="connect('${s.address||"127.0.0.1:27015"}')">CONNECT</button></div></article>`).join("");}
 function renderSkins(filter="all"){document.querySelector("#skinGrid").innerHTML=data.skins.filter(x=>filter==="all"||x.type===filter).map((s,i)=>`<article class="skin"><div class="skin-img">${s.icon}</div><h3>${s.weapon} | ${s.name}</h3><p>${s.rarity} · CS2</p><button class="equip" onclick="equip('${s.weapon} | ${s.name}')">EQUIP</button></article>`).join("");}
 function connect(addr){alert("CS2 connect: "+addr+"\\nProduction server дээр Steam connect URL/launcher холбоно.");}
