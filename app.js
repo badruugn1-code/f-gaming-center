@@ -11,14 +11,21 @@ const data = {
   agents: []
 };
 
-const steamId = new URLSearchParams(location.search).get("steamId");
+const params = new URLSearchParams(location.search);
+
+const steamId = params.get("steamId");
+const avatar = params.get("avatar");
 
 if (steamId) {
-  const login = document.querySelector(".login");
+  const steamAvatar = document.querySelector("#steamAvatar");
+  const steamName = document.querySelector("#steamName");
 
-  if (login) {
-    login.textContent = "Steam ✓";
-    login.removeAttribute("href");
+  if (steamAvatar && avatar) {
+    steamAvatar.src = avatar;
+  }
+
+  if (steamName) {
+    steamName.textContent = "Steam ✓";
   }
 }
 
