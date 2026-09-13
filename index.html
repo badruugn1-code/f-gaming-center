@@ -6,76 +6,149 @@
 <title>F Gaming Center</title>
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <header class="nav">
+
+<header class="topbar">
   <a class="brand" href="#">
     <img src="logo.jpeg" alt="F Gaming">
     <span>F GAMING</span>
   </a>
 
-  <div class="header-actions">
+  <button class="menu-btn" id="menuBtn">☰</button>
+</header>
 
-    <a class="header-btn" href="#servers">🎮</a>
+<div class="layout">
 
-    <a class="header-btn" href="#skins">+</a>
+  <aside class="menu" id="menu">
 
-    <select id="lang" aria-label="Language">
-      <option value="mn">🇲🇳</option>
-      <option value="en">🇬🇧</option>
-    </select>
+    <div class="play-now">
+      <span>F</span>
+      <b>PLAY NOW</b>
+      <button id="closeMenu">×</button>
+    </div>
 
-    <a class="header-btn" href="#messages">✉</a>
+    <nav>
 
-    <div class="steam-profile">
-  <img id="steamAvatar" src="logo.jpeg" alt="Steam Avatar">
-  <span id="steamName">Steam</span>
+      <a href="#servers" class="menu-item">
+        <span>👥</span>
+        <b>COMMUNITY</b>
+        <span>⌄</span>
+      </a>
+
+      <a href="#skins" class="menu-item">
+        <span>🔫</span>
+        <b>SKINCHANGER</b>
+      </a>
+
+      <a href="#discord" class="menu-item">
+        <span>🎮</span>
+        <b>DISCORD</b>
+        <span>⌄</span>
+      </a>
+
+      <a href="#rent" class="menu-item">
+        <span>🖥️</span>
+        <b>RENT</b>
+      </a>
+
+      <a href="#patch" class="menu-item">
+        <span>📄</span>
+        <b>PATCH NOTES</b>
+      </a>
+
+    </nav>
+  </aside>
+
+  <main class="content">
+
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">F GAMING CENTER</span>
+        <h1>PLAY <b>YOUR WAY.</b></h1>
+        <p>
+          CS2 community servers, live players and your cosmetic loadout.
+        </p>
+        <a href="#servers" class="red-btn">PLAY NOW</a>
+      </div>
+    </section>
+
+    <section id="servers">
+      <div class="section-title">
+        <div>
+          <h2>Community</h2>
+          <p>Choose a server and connect.</p>
+        </div>
+        <strong>
+          <span id="totalPlayers">0</span> /
+          <span id="totalSlots">0</span>
+        </strong>
+      </div>
+
+      <div id="serverGrid" class="server-grid"></div>
+    </section>
+
+    <section id="skins">
+      <div class="section-title">
+        <div>
+          <h2>Skinchanger</h2>
+          <p>Select your cosmetic loadout.</p>
+        </div>
+      </div>
+
+      <div class="filters">
+        <button class="filter active" data-filter="all">ALL</button>
+        <button class="filter" data-filter="rifle">RIFLE</button>
+        <button class="filter" data-filter="pistol">PISTOL</button>
+        <button class="filter" data-filter="knife">KNIFE</button>
+      </div>
+
+      <div id="skinGrid" class="skin-grid"></div>
+    </section>
+
+    <section id="discord" class="extra-section">
+      <h2>Discord</h2>
+      <p>Join the F Gaming community.</p>
+    </section>
+
+    <section id="rent" class="extra-section">
+      <h2>Rent</h2>
+      <p>Gaming PC and server rental.</p>
+    </section>
+
+    <section id="patch" class="extra-section">
+      <h2>Patch Notes</h2>
+      <p>F Gaming Center latest updates.</p>
+    </section>
+
+  </main>
 </div>
 
-  </div>
-</header>
-<section class="hero">
-  <div class="hero-copy">
-    <span class="eyebrow">F GAMING CENTER</span>
-    <h1>PLAY <b>YOUR WAY.</b></h1>
-    <p data-i18n="hero">CS2 community servers, live players and your cosmetic loadout.</p>
-    <a href="#servers" class="red-btn" data-i18n="play">PLAY NOW</a>
-  </div>
-  
-</section>
+<footer>
+  © 2026 F Gaming Center · CS2 Community
+</footer>
 
-<main>
-<section id="servers">
-  <div class="section-title">
-    <div><h2 data-i18n="ourServers">Our Servers</h2><p data-i18n="choose">Choose a map and connect.</p></div>
-    <strong><span id="totalPlayers">0</span> / <span id="totalSlots">0</span></strong>
-  </div>
-  <div id="serverGrid" class="server-grid"></div>
-</section>
-
-<section id="skins">
-  <div class="section-title">
-    <div><h2 data-i18n="skinTitle">Skinchanger</h2><p data-i18n="skinSub">Select your cosmetic loadout.</p></div>
-  </div>
-  <div class="filters">
-    <button class="filter active" data-filter="all">ALL</button>
-    <button class="filter" data-filter="rifle">RIFLE</button>
-    <button class="filter" data-filter="pistol">PISTOL</button>
-    <button class="filter" data-filter="knife">KNIFE</button>
-  </div>
-  <div id="skinGrid" class="skin-grid"></div>
-</section>
-
-<section id="players" class="players">
-  <div class="section-title"><div><h2 data-i18n="topPlayers">Top Players</h2><p>F Gaming Center leaderboard</p></div></div>
-  <div class="leaderboard">
-    <div>#1 <b>MOOSE</b><span>27,014 kills</span></div>
-    <div>#2 <b>IZU</b><span>26,228 kills</span></div>
-    <div>#3 <b>VIRUS</b><span>10,852 kills</span></div>
-    <div>#4 <b>HERO</b><span>10,761 kills</span></div>
-  </div>
-</section>
-</main>
-<footer>© 2026 F Gaming Center · CS2 Community</footer>
 <script src="app.js"></script>
+
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const menu = document.getElementById("menu");
+const closeMenu = document.getElementById("closeMenu");
+
+menuBtn.onclick = () => {
+  menu.classList.add("open");
+};
+
+closeMenu.onclick = () => {
+  menu.classList.remove("open");
+};
+
+document.querySelectorAll(".menu-item").forEach(item => {
+  item.onclick = () => {
+    menu.classList.remove("open");
+  };
+});
+</script>
+
 </body>
 </html>
