@@ -172,7 +172,7 @@ const server = http.createServer(
 
         const redirectUrl =
           new URL(
-            "https://badruugn1-code.github.io/f-gaming-center/"
+            "https://fgaming.pages.dev/"
           );
 
 
