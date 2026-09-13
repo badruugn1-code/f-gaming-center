@@ -14,21 +14,14 @@ const data = {
 const params = new URLSearchParams(location.search);
 
 const steamId = params.get("steamId");
-const avatar = params.get("avatar");
 
 if (steamId) {
-  const steamAvatar = document.querySelector("#steamAvatar");
-  const steamName = document.querySelector("#steamName");
+  const steamLoginText = document.querySelector("#steamLoginText");
 
-  if (steamAvatar && avatar) {
-    steamAvatar.src = avatar;
-  }
-
-  if (steamName) {
-    steamName.textContent = "Steam ✓";
+  if (steamLoginText) {
+    steamLoginText.textContent = "STEAM CONNECTED ✓";
   }
 }
-
 const t = {
   mn: {
     servers:"Servers",
