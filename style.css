@@ -1,4 +1,6 @@
-*{
+from pathlib import Path
+
+css = r"""*{
   box-sizing:border-box;
 }
 
@@ -14,7 +16,10 @@ body{
   overflow-x:hidden;
 }
 
-/* TOP BAR */
+/* =========================
+   TOP BAR
+========================= */
+
 .topbar{
   height:72px;
   background:#090b0e;
@@ -56,18 +61,22 @@ body{
   cursor:pointer;
 }
 
-/* SIDE MENU */
+/* =========================
+   MENU
+========================= */
+
 .menu{
   position:fixed;
   top:72px;
   left:-100%;
-  width:min(390px,82vw);
+  width:min(420px,88vw);
   height:calc(100vh - 72px);
   background:#050607;
   border-right:1px solid #292c31;
   z-index:200;
   transition:left .25s ease;
   overflow-y:auto;
+  box-shadow:20px 0 60px rgba(0,0,0,.45);
 }
 
 .menu.open{
@@ -113,7 +122,7 @@ body{
 }
 
 .menu-item{
-  height:92px;
+  min-height:92px;
   display:flex;
   align-items:center;
   gap:25px;
@@ -123,6 +132,7 @@ body{
   border-top:1px solid #111417;
   font-size:19px;
   letter-spacing:3px;
+  transition:.18s ease;
 }
 
 .menu-item:last-child{
@@ -131,6 +141,7 @@ body{
 
 .menu-item span{
   width:30px;
+  min-width:30px;
   text-align:center;
   font-size:23px;
 }
@@ -139,17 +150,20 @@ body{
   font-weight:800;
 }
 
-.menu-item:hover{
+.menu-item:hover,
+.menu-item:active{
   background:#111;
   color:#fff;
 }
 
-/* MAIN */
+/* =========================
+   MAIN / HERO
+========================= */
+
 .content{
   width:100%;
 }
 
-/* HERO */
 .hero{
   min-height:380px;
   padding:70px 8%;
@@ -157,6 +171,7 @@ body{
   align-items:center;
   background:
     radial-gradient(circle at 80% 50%,#3d0010,#100407 30%,#060607 68%);
+  overflow:hidden;
 }
 
 .hero-copy{
@@ -198,7 +213,10 @@ body{
   border-radius:5px;
 }
 
-/* SECTIONS */
+/* =========================
+   SECTIONS
+========================= */
+
 main{
   width:100%;
 }
@@ -229,10 +247,13 @@ section{
   font-size:22px;
 }
 
-/* SERVERS */
+/* =========================
+   SERVERS
+========================= */
+
 .server-grid{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
+  grid-template-columns:repeat(2,minmax(0,1fr));
   gap:15px;
 }
 
@@ -241,9 +262,13 @@ section{
   border:1px solid #292d32;
   border-radius:10px;
   padding:20px;
+  min-width:0;
 }
 
-/* FILTERS */
+/* =========================
+   FILTERS
+========================= */
+
 .filters{
   display:flex;
   gap:10px;
@@ -258,6 +283,7 @@ section{
   border-radius:8px;
   padding:9px 15px;
   cursor:pointer;
+  white-space:nowrap;
 }
 
 .filter.active{
@@ -265,10 +291,13 @@ section{
   color:#fff;
 }
 
-/* SKINS */
+/* =========================
+   SKINS
+========================= */
+
 .skin-grid{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+  grid-template-columns:repeat(4,minmax(0,1fr));
   gap:15px;
 }
 
@@ -278,6 +307,7 @@ section{
   border-radius:12px;
   padding:12px;
   overflow:hidden;
+  min-width:0;
 }
 
 .skin-img{
@@ -313,7 +343,10 @@ section{
   padding:9px;
 }
 
-/* EXTRA */
+/* =========================
+   EXTRA SECTIONS
+========================= */
+
 .extra-section{
   padding:55px 7%;
   border-top:1px solid #15181b;
@@ -327,7 +360,10 @@ section{
   color:#777;
 }
 
-/* LEADERBOARD */
+/* =========================
+   LEADERBOARD
+========================= */
+
 .leaderboard{
   display:grid;
   gap:8px;
@@ -347,7 +383,10 @@ section{
   text-align:right;
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
+
 footer{
   text-align:center;
   padding:35px;
@@ -355,7 +394,10 @@ footer{
   border-top:1px solid #202328;
 }
 
-/* MOBILE */
+/* =========================
+   TABLET
+========================= */
+
 @media(max-width:850px){
 
   .hero{
@@ -377,6 +419,10 @@ footer{
     padding:40px 20px;
   }
 }
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:560px){
 
@@ -401,36 +447,63 @@ footer{
 
   .menu{
     top:64px;
-    width:88vw;
+    width:82vw;
+    max-width:none;
     height:calc(100vh - 64px);
   }
 
   .play-now{
     height:72px;
     margin:16px;
+    padding:0 18px;
+  }
+
+  .play-now span{
+    font-size:22px;
   }
 
   .play-now b{
     font-size:20px;
+    letter-spacing:3px;
+  }
+
+  .play-now button{
+    right:12px;
+    top:17px;
+    font-size:27px;
   }
 
   .menu-item{
-    height:88px;
-    padding:0 35px;
-    font-size:17px;
+    min-height:86px;
+    height:86px;
+    padding:0 28px;
+    gap:20px;
+    font-size:16px;
+    letter-spacing:2.5px;
+  }
+
+  .menu-item span{
+    font-size:21px;
   }
 
   .hero{
     min-height:320px;
     padding:45px 20px;
+    display:block;
+  }
+
+  .hero-copy{
+    max-width:100%;
   }
 
   .hero h1{
     font-size:40px;
+    margin:14px 0;
   }
 
   .hero p{
     font-size:14px;
+    max-width:100%;
   }
 
   .section-title{
@@ -442,10 +515,18 @@ footer{
     font-size:25px;
   }
 
+  .section-title strong{
+    font-size:18px;
+  }
+
   .server-grid,
   .skin-grid{
     grid-template-columns:1fr 1fr;
     gap:10px;
+  }
+
+  .server-card{
+    padding:14px;
   }
 
   .skin{
@@ -460,6 +541,11 @@ footer{
     max-height:110px;
   }
 
+  .filter{
+    padding:8px 11px;
+    font-size:12px;
+  }
+
   .leaderboard div{
     grid-template-columns:45px 1fr;
   }
@@ -469,4 +555,45 @@ footer{
     text-align:left;
     margin-top:4px;
   }
+
+  footer{
+    padding:28px 15px;
+    font-size:12px;
+  }
 }
+
+/* =========================
+   VERY SMALL PHONES
+========================= */
+
+@media(max-width:380px){
+
+  .menu{
+    width:86vw;
+  }
+
+  .menu-item{
+    padding:0 22px;
+    gap:16px;
+    font-size:14px;
+  }
+
+  .play-now b{
+    font-size:18px;
+  }
+
+  .hero h1{
+    font-size:35px;
+  }
+
+  .server-grid,
+  .skin-grid{
+    gap:8px;
+  }
+}
+"""
+
+out = Path("/mnt/data/style.css")
+out.write_text(css, encoding="utf-8")
+print(f"Бэлэн боллоо: {out}")
+print(f"Нийт мөр: {len(css.splitlines())}")
